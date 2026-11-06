@@ -1,11 +1,11 @@
 {
   "project": {
     "name": "Platform Modernisation & Security Remediation",
-    "context": "An ongoing internal initiative at my WIL host company to bring internal web platforms and client-facing sites up to a currently supported PHP version, close out findings from a third-party security assessment, and ship incremental improvements to the internal admin tooling the business runs on daily."
+    "context": "An ongoing internal initiative at AAG (Achievement Awards Group), my WIL host company, to bring internal web platforms and client-facing sites up to a currently supported PHP version, close out findings from a third-party security assessment, and ship incremental improvements to the internal admin tooling the business runs on daily. In line with AAG's confidentiality policy, specific client and campaign names are not disclosed below — platforms are described generically."
   },
   "charter": {
     "purpose": "We exist to keep the company's web platforms secure, stable, and on supported software versions, while shipping small, verifiable improvements to the internal tools the business depends on.",
-    "team": "IT department — one WIL intern (me) working alongside a senior developer/mentor, reporting into daily stand-ups with the wider engineering team.",
+    "team": "AAG IT department — one WIL intern (me) working alongside a senior developer/mentor, reporting into daily stand-ups with the wider engineering team.",
     "values": [
       {
         "title": "Verify before you ship",

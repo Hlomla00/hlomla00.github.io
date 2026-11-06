@@ -16,6 +16,7 @@
 - [Reflection: Coding in Markdown](#reflection-coding-in-markdown-star-method)
 - [Mock Interview Video](#mock-interview-video)
 - [Reflection: Mock Interview Experience](#reflection-mock-interview-experience-star-method)
+- [Industry Placement — Agile Portfolio](#industry-placement--agile-portfolio-assessment-2)
 - [Published on GitHub Pages](#published-on-github-pages)
 - [Reflection: GitHub Pages](#reflection-github-pages-star-method)
 
@@ -143,6 +144,16 @@ I prepared by connecting my answers to real experiences. When asked about my pro
 **Result**
 
 The mock interview significantly improved my confidence. I identified areas where I needed to be more concise and where I needed to use more precise technical vocabulary. It was invaluable preparation for real WIL and graduate interviews. It also made me realise that my story — from a mobile car wash in December 2023 to building apps — is compelling if I tell it with clarity and purpose.
+
+---
+
+## Industry Placement — Agile Portfolio (Assessment 2)
+
+My Work Integrated Learning placement is with **AAG (Achievement Awards Group) (Pty) Ltd**. This section (live on the site under **Industry Placement**) presents the Agile artefacts required for PRP370S Assessment 2 — Agile Team Charter, User Stories and Tasks, Product Backlog, Sprint Backlog, and Agile Logbook — each with supporting evidence and a reflection, drawn from real work done during the placement.
+
+> **Confidentiality note:** Under AAG's confidentiality policy, this portfolio names AAG as the host employer (as already disclosed on my official CPUT placement paperwork) but does **not** name any of AAG's specific clients, campaigns, or any other confidential business information. Work is described generically (e.g. "an internal admin platform," "a client-facing site") wherever a specific name would otherwise appear.
+
+Full content: [`src/data/agile.json`](./src/data/agile.json) · rendered on the live site at [#agile](https://hlomla00.github.io/#agile).
 
 ---
 
