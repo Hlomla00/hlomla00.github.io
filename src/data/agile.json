@@ -1,0 +1,180 @@
+{
+  "project": {
+    "name": "Platform Modernisation & Security Remediation",
+    "context": "An ongoing internal initiative at my WIL host company to bring internal web platforms and client-facing sites up to a currently supported PHP version, close out findings from a third-party security assessment, and ship incremental improvements to the internal admin tooling the business runs on daily."
+  },
+  "charter": {
+    "purpose": "We exist to keep the company's web platforms secure, stable, and on supported software versions, while shipping small, verifiable improvements to the internal tools the business depends on.",
+    "team": "IT department — one WIL intern (me) working alongside a senior developer/mentor, reporting into daily stand-ups with the wider engineering team.",
+    "values": [
+      {
+        "title": "Verify before you ship",
+        "detail": "A fix isn't done because it compiles — it's done once it has been exercised against a real flow (a login, a page render, a query) in an environment that mirrors production."
+      },
+      {
+        "title": "Read-only until told otherwise",
+        "detail": "Never create, update, or delete against live or shared data without an explicit, scoped go-ahead. Default to observing and verifying."
+      },
+      {
+        "title": "Document the why, not just the what",
+        "detail": "The diff shows what changed. The commit message, or a shared notes file, should explain why — so the next person (often future me) isn't re-deriving the reasoning from scratch."
+      },
+      {
+        "title": "Ask early",
+        "detail": "A five-minute question in stand-up beats a day spent guessing at intent or chasing the wrong root cause."
+      }
+    ],
+    "workingAgreements": [
+      "Daily stand-up: what I finished, what I'm doing next, anything blocking me.",
+      "Every change goes through a pull request before merging — no direct pushes to shared branches.",
+      "No secrets or credentials committed to version control; environment-specific configuration lives in environment variables.",
+      "Local development environments mirror the real stack as closely as possible, so a bug caught locally is one that would have shown up in staging anyway."
+    ],
+    "boundaries": [
+      "No destructive or write operations against production or shared test data without explicit confirmation.",
+      "Scope is agreed before starting; if a fix surfaces a bigger pre-existing issue, it gets flagged and scoped separately rather than expanded silently.",
+      "Escalate to my mentor when blocked for longer than a single stand-up cycle, rather than sitting on it."
+    ],
+    "reflection": "Most of what I know about this charter, I learned by bumping into its edges rather than reading it off a wall. Early on I defaulted to asking permission for almost everything; by the middle of the placement I understood which boundaries were fixed (never touch live data, always PR before merge) and which were judgement calls I was trusted to make myself (how to structure a fix, when a branch needed rebasing before a PR would even be reviewable). The 'verify before you ship' value in particular reshaped how I work — I now treat 'it runs without errors' as the start of testing, not the end of it, because I've seen fixes that looked complete pass a syntax check and still fail the first time someone actually logged in. Having explicit boundaries around production data also taught me to separate curiosity from authorisation: I can trace a bug all the way to its root cause using read-only access, and that's almost always enough to propose a confident fix without ever needing write access to anything live."
+  },
+  "userStories": [
+    {
+      "asA": "internal administrator",
+      "iWant": "to see when a participant record was deleted and have deleted rows visually distinct from active ones",
+      "soThat": "I can audit a participant list at a glance without mistaking a deleted entry for an active one",
+      "tasks": [
+        "Add a deletion-date field to the back-end query and data model",
+        "Add conditional row styling in the front-end grid for deleted records",
+        "Adjust sort order so deleted rows group to the bottom of the list",
+        "Add a unit test covering the new field and sort behaviour",
+        "Verify the change against real data in a browser before merging"
+      ]
+    },
+    {
+      "asA": "site visitor",
+      "iWant": "the website to be free of known account-takeover and information-disclosure weaknesses",
+      "soThat": "my personal data stays protected when I register, log in, or browse the site",
+      "tasks": [
+        "Review third-party penetration-test findings and triage by severity",
+        "Patch the affected authentication logic and update core/plugin versions",
+        "Correct a reverse-proxy rule that was failing to actually block a sensitive endpoint",
+        "Suppress server and language-runtime version headers from responses",
+        "Re-test each finding with the same method the original report used, to confirm closure"
+      ]
+    },
+    {
+      "asA": "developer maintaining these platforms",
+      "iWant": "them running on a currently supported language runtime version",
+      "soThat": "they keep receiving security patches and don't break unexpectedly when the hosting environment is upgraded",
+      "tasks": [
+        "Build a reusable scan-fix-validate toolkit rather than fixing each site one-off",
+        "Run a full syntax sweep across the codebase and triage every finding",
+        "Fix each breaking change, distinguishing language-version issues from pre-existing logic bugs the stricter runtime exposed",
+        "Live-test core user flows (login, key pages) in a local containerised environment before sign-off",
+        "Document every fix pattern in a shared reference so the next site takes less time than the last"
+      ]
+    },
+    {
+      "asA": "administrator reviewing participant data",
+      "iWant": "duplicate rows grouped and category filters returning correct results",
+      "soThat": "the numbers I report upward are accurate",
+      "tasks": [
+        "Reproduce the incorrect filter result against a known data set",
+        "Trace the query to find where the category-code join/filter was wrong",
+        "Fix the grouping logic so duplicate rows collapse correctly",
+        "Verify output against the known-good data set before closing the item"
+      ]
+    }
+  ],
+  "productBacklog": [
+    {
+      "item": "Security remediation across public-facing sites (penetration-test findings)",
+      "priority": "High",
+      "status": "Done",
+      "note": "Account-takeover, information-disclosure and access-control findings closed and re-verified."
+    },
+    {
+      "item": "Language runtime upgrade initiative (reusable toolkit + rollout across repositories)",
+      "priority": "High",
+      "status": "In progress",
+      "note": "Toolkit built and proven on the first sites; rollout continues one repository at a time."
+    },
+    {
+      "item": "Internal admin platform enhancements (deletion visibility, duplicate-row grouping, filter fix)",
+      "priority": "Medium",
+      "status": "Done",
+      "note": "Shipped to the Linked Participants grid, back end and front end, with a unit test."
+    },
+    {
+      "item": "Local development environment parity (containerised back end, local front-end tooling)",
+      "priority": "Medium",
+      "status": "Done",
+      "note": "Front end and Lambda-backed services both run and are testable locally, matching the deployed stack."
+    },
+    {
+      "item": "Call-management interface registration flow fix",
+      "priority": "Medium",
+      "status": "Done",
+      "note": "Re-enabled a disabled registration path and resolved the data-quality issue blocking it."
+    },
+    {
+      "item": "Second-round QA: cross-check external tester findings against toolkit output",
+      "priority": "Medium",
+      "status": "Done",
+      "note": "Closed gaps where the toolkit and an independent tester disagreed; both sources now agree."
+    },
+    {
+      "item": "Shared pattern documentation upkeep",
+      "priority": "Low / continuous",
+      "status": "Ongoing",
+      "note": "Every new fix pattern gets written up once so it's recognised instantly on the next repository."
+    }
+  ],
+  "sprintBacklog": {
+    "sprintGoal": "Bring one more internal platform fully onto a supported runtime version, with every core user flow verified in a local environment before the pull request is opened.",
+    "definitionOfDone": "Full syntax sweep is clean, the app runs in a local containerised environment on the target version, the core user flow (e.g. login) has been exercised end-to-end, and findings are written up in the shared reference before the PR is opened.",
+    "days": [
+      { "day": "Monday", "focus": "Stand-up; review prior sprint's merged work; pick up the next platform in the queue" },
+      { "day": "Tuesday", "focus": "Run the scan toolkit end-to-end; triage every finding into a fix list" },
+      { "day": "Wednesday", "focus": "Apply fixes; rebuild and test the local containerised environment" },
+      { "day": "Thursday", "focus": "Live-verify core flows (login, key pages); update the shared pattern reference with anything new" },
+      { "day": "Friday", "focus": "Commit, open the pull request, demo progress and raise blockers at stand-up" }
+    ]
+  },
+  "logbook": [
+    {
+      "period": "Month 1",
+      "entries": [
+        "Began the runtime-compatibility initiative by building a reusable scan, fix and validation toolkit for future upgrades.",
+        "Completed the first platform upgrade, including a security audit that surfaced CSRF, deserialisation and command-injection findings, and moved hardcoded credentials into environment variables.",
+        "Fixed a database error-reporting change and documented it as a reusable pattern; resolved further deprecation findings from the audit.",
+        "Completed upgrades on additional platforms, resolving fatal and parse errors and cleaning up deprecations on each; recorded user-confirmed live verification."
+      ]
+    },
+    {
+      "period": "Month 2",
+      "entries": [
+        "Applied additional compatibility and security fixes and merged the latest shared branch into the upgrade branch to keep it current.",
+        "Began a second round of QA across previously upgraded platforms, cross-checking an external tester's findings against the toolkit's scan results.",
+        "Fixed unguarded session null-reference errors and service-client calls surfaced during the cross-check; updated the shared toolkit documentation.",
+        "Finished the second QA round across several platforms, including tester cross-checks and documentation updates.",
+        "Worked on the call-management interface: re-enabled a registration flow and resolved the data-quality issue blocking it; gained hands-on experience with both front-end and back-end changes, and with branching/merging across repositories that share common infrastructure."
+      ]
+    },
+    {
+      "period": "Month 3",
+      "entries": [
+        "Began security remediation on client-facing sites based on penetration-test findings: patched an account-takeover weakness in the shared authentication layer, corrected an ineffective access-control rule, and suppressed version-disclosure headers.",
+        "Completed the same security hardening on additional sites, including removing leftover default files; began front-end and back-end work on the internal admin platform, adding a deletion-date field and row highlighting to a key grid, with a unit test.",
+        "Continued admin-platform work: grouped duplicate rows and corrected a broken category filter; set up and ran the front end locally, and used a local container toolchain to run and test back-end services.",
+        "Fixed a display and sort-order issue on a participant list; merged an outstanding runtime-upgrade pull request for a client site."
+      ]
+    }
+  ],
+  "reflections": {
+    "userStories": "Writing these as 'as a / I want / so that' statements rather than straight task lists forced me to name who actually benefits from each change — and that wasn't always who I assumed. The deletion-visibility story, for instance, is really for whoever audits that grid weekly, not for me as the person writing the query. Once I started framing work that way, I found myself asking 'does this actually solve their problem' before marking a task done, instead of just 'does this match the ticket description'. It also made scope creep easier to spot: if a task didn't trace back to the 'so that', it probably belonged in a different story.",
+    "productBacklog": "Keeping a backlog — even an informal one, synced through stand-up and shared docs rather than a dedicated tool — taught me that prioritisation isn't static. Security findings started as the clear top priority, but once those closed out, the runtime-upgrade initiative took the top slot because it blocked everything else from safely receiving further security patches. Seeing the backlog this way also made it obvious why 'shared documentation upkeep' deserved a permanent low-priority-but-continuous slot: it's never the most urgent item, but skipping it compounds into slower work on every item that comes after it.",
+    "sprintBacklog": "Breaking a week into a fixed rhythm — scan, fix, verify, document, ship — is the single habit from this placement I expect to keep for the rest of my career. Before I had this structure, I'd sometimes jump straight from spotting a bug to writing a fix, and skip the verification step until something broke later. Forcing 'live-verify core flows' into Thursday, every single sprint, is what turned 'should work' into 'confirmed working' as a routine rather than an afterthought.",
+    "logbook": "Reading back over the logbook, the clearest trend isn't any single fix — it's how much less time each new platform takes compared to the first one. The first upgrade took a full week and involved a lot of first-principles debugging. By the third month, the same class of problem was often diagnosed within an hour because the toolkit and the shared pattern reference already knew what to look for. That's the real value of documenting as you go: it compounds, and it's the clearest evidence I have that I was genuinely building capability over the placement, not just repeating the same task five times."
+  }
+}

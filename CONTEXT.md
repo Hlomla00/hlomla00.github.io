@@ -71,8 +71,9 @@ CONTEXT.md            # This file
 | 5 | Resume | `ResumeSection.tsx` | Hardcoded |
 | 6 | Hackathons | `HackathonsSection.tsx` | `hackathons.json` |
 | 7 | Certifications | `CertificationsSection.tsx` | `certifications.json` |
-| 8 | Reflections | `ReflectionsSection.tsx` | `reflections.json` |
-| 9 | Contact | `ContactSection.tsx` | Hardcoded |
+| 8 | Agile Portfolio | `AgileSection.tsx` | `agile.json` |
+| 9 | Reflections | `ReflectionsSection.tsx` | `reflections.json` |
+| 10 | Contact | `ContactSection.tsx` | Hardcoded |
 
 ---
 
@@ -117,6 +118,14 @@ GUM (ID: 3) has `"category": ["Academic", "Mobile"]` — appears in both rows in
 |---|---|
 | Telkom 10X Hackathon 2025 | 14 images in `public/hackathons/telkom/` |
 | MICT SETA Western Cape 2026 | 21 images in `public/hackathons/mict/` |
+
+---
+
+## Agile Portfolio — Industry Placement (PRP370S Assessment 2)
+
+Five-panel accordion covering the GitHub Portfolio rubric: Agile Team Charter, User Stories and Tasks, Product Backlog, Sprint Backlog, Agile Logbook. Each panel has an Evidence block and a Reflection paragraph, content in `agile.json`.
+
+Content is generalised from real WIL work (runtime-upgrade initiative, security remediation, internal admin-platform features, QA cross-checks) without naming the host company's specific client campaigns — per the assessment brief's confidentiality instruction. Keep it that way when editing: platform/system type names (e.g. "internal admin platform") are fine, specific client/campaign names are not.
 
 ---
 
