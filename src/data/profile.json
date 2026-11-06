@@ -2,14 +2,14 @@
   "name": "Hlomla Moosa Magopeni",
   "initials": "HM",
   "title": "Full-Stack Developer",
-  "bio": "Application Development student at CPUT building real-world full-stack solutions — from ride-hailing kiosks to student marketplaces — using Java, JavaScript, and MySQL.",
-  "subtitles": ["Full-Stack Developer", "System Analyst", "QA Tester", "Problem Solver"],
+  "bio": "Application Development student at CPUT building real-world full-stack solutions — from ride-hailing kiosks to student marketplaces — using Java, JavaScript, PHP, and MySQL.",
+  "subtitles": ["Full-Stack Developer", "Database Administrator", "QA Tester", "Security-Minded Developer", "Problem Solver"],
   "available": true,
   "social": {
     "github": "https://github.com/Hlomla00",
     "linkedin": "https://www.linkedin.com/in/hlomlamagopeni",
     "email": "218070349@mycput.ac.za"
   },
-  "aboutBio": "I'm Hlomla Moosa Magopeni, a 3rd-year Diploma in ICT Application Development student at CPUT. I build full-stack applications that solve real community problems — from helping people request rides safely without a smartphone, to streamlining clinic bookings for students on campus. I work across the full stack: designing front-end interfaces, writing back-end logic, and integrating relational databases. I thrive in agile teams, take quality seriously, and write code that's clean and maintainable. Currently seeking a Work Integrated Learning (WIL) opportunity as a Full-Stack Developer.",
-  "traits": ["Full-Stack Developer", "Agile Team Player", "Clean Code Advocate", "System Analyst", "QA Tester", "Community-Driven", "Detail Oriented"]
+  "aboutBio": "I'm Hlomla Moosa Magopeni, a 3rd-year Diploma in ICT Application Development student at CPUT. I build full-stack applications that solve real community problems — from helping people request rides safely without a smartphone, to streamlining clinic bookings for students on campus. I work across the full stack: designing front-end interfaces, writing back-end logic, and integrating relational databases. I'm currently completing my Work Integrated Learning placement as a Full-Stack Developer at AAG (Achievement Awards Group), where I've picked up PHP, Docker-based local development, and security-minded practices — patching real vulnerabilities and upgrading platforms onto supported runtime versions. I thrive in agile teams, take quality seriously, and write code that's clean and maintainable.",
+  "traits": ["Full-Stack Developer", "Agile Team Player", "Clean Code Advocate", "Database Administrator", "QA Tester", "Security-Minded", "Community-Driven", "Detail Oriented"]
 }
