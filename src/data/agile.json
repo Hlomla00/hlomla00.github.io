@@ -4,8 +4,8 @@
     "context": "An ongoing internal initiative at AAG (Achievement Awards Group), my WIL host company, to bring internal web platforms and client-facing sites up to a currently supported PHP version, close out findings from a third-party security assessment, and ship incremental improvements to the internal admin tooling the business runs on daily. In line with AAG's confidentiality policy, specific client and campaign names are not disclosed below — platforms are described generically."
   },
   "charter": {
-    "purpose": "We exist to keep the company's web platforms secure, stable, and on supported software versions, while shipping small, verifiable improvements to the internal tools the business depends on.",
-    "team": "AAG IT department — one WIL intern (me) working alongside a senior developer/mentor, reporting into daily stand-ups with the wider engineering team.",
+    "purpose": "We exist to keep AAG's web platforms secure, stable, and on supported software versions, while shipping small, verifiable improvements to the internal tools the business depends on.",
+    "team": "AAG IT-Enterprise department — one WIL intern (me) working alongside my manager (the Technical Lead), a Senior II Engineer acting as my mentor, three Associate Engineers, and a tester, all meeting at daily stand-ups with the wider engineering team.",
     "values": [
       {
         "title": "Verify before you ship",
@@ -51,9 +51,9 @@
       ]
     },
     {
-      "asA": "site visitor",
-      "iWant": "the website to be free of known account-takeover and information-disclosure weaknesses",
-      "soThat": "my personal data stays protected when I register, log in, or browse the site",
+      "asA": "an existing client of the company",
+      "iWant": "the sites AAG runs for us to be free of known account-takeover and information-disclosure weaknesses",
+      "soThat": "our customers' personal data stays protected when they register, log in, or browse the site",
       "tasks": [
         "Review third-party penetration-test findings and triage by severity",
         "Patch the affected authentication logic and update core/plugin versions",
